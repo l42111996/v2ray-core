@@ -4,6 +4,7 @@ package kcp
 
 import (
 	"crypto/cipher"
+	"golang.org/x/crypto/chacha20poly1305"
 
 	"v2ray.com/core/common"
 	"v2ray.com/core/transport/internet"
@@ -61,7 +62,8 @@ func (c *Config) GetReadBufferSize() uint32 {
 
 // GetSecurity returns the security settings.
 func (*Config) GetSecurity() (cipher.AEAD, error) {
-	return NewSimpleAuthenticator(), nil
+	return chacha20poly1305.New([]byte{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32})
+	//return NewSimpleAuthenticator(), nil
 }
 
 func (c *Config) GetPackerHeader() (internet.PacketHeader, error) {
