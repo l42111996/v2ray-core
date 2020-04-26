@@ -30,7 +30,7 @@ trap cleanup INT TERM ERR
 get_source() {
 	echo ">>> Getting v2ray sources ..."
 	go get -insecure -v -t v2ray.com/core/...
-	SRCDIR="$GOPATH/src/github.com/l42111996/v2ray-core"
+	SRCDIR="/home/v2ray-core"
 }
 
 build_v2() {
@@ -101,7 +101,7 @@ case $arg in
 	arm*)
 		GOARCH=$arg
 		;;
-	mips*)
+	mips*)ssz
 		GOARCH=$arg
 		;;
 	386)
